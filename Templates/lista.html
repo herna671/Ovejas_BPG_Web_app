@@ -1,0 +1,116 @@
+!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+     <link rel="stylesheet" type="text/css" href="../Static/css/main.css">
+    
+    <title>Buenas Prácticas Ganaderas</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <nav class="navbar">
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="inicio" style="text-decoration: none; color: inherit;"> Inicio</a>
+              <a class="nav-link" href="indicadores" style="text-decoration: none; color: inherit;"> Indicadores</a>
+              <a class="nav-link" href="lista" style="text-decoration: none; color: inherit;"> Lista de chequeo</a>
+              <a class="nav-link" href="C:\Users\Usuario\Desktop\Web_app_BPG\Templates\acerca_de.html" style="text-decoration: none; color: inherit;"> Acerca de </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+  <br/>
+
+<main>
+    
+    <section> 
+        <form id="checkboxForm">
+            <h3>Checkbox Form</h3>
+            <label>
+                Question 1:
+                <input type="checkbox" name="question1" value="option1"> Option 1
+                <input type="checkbox" name="question1" value="option2"> Option 2
+            </label>
+            <br>
+            <label>
+            Question 2:
+            <input type="checkbox" name="question2" value="option1"> Option 1
+            <input type="checkbox" name="question2" value="option2"> Option 2
+            </label>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <canvas id="barChart"></canvas>
+
+        <script>
+    document.getElementById("checkboxForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      var totalCount = checkboxes.length;
+      var question1Count = 0;
+      var question2Count = 0;
+
+      checkboxes.forEach(function(checkbox) {
+        if (checkbox.name === "question1") {
+          question1Count++;
+        } else if (checkbox.name === "question2") {
+          question2Count++;
+        }
+      });
+
+      var question1Percentage = (question1Count / totalCount) * 100;
+      var question2Percentage = (question2Count / totalCount) * 100;
+
+      var ctx = document.getElementById("barChart").getContext("2d");
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Question 1', 'Question 2'],
+          datasets: [{
+            label: 'Percentage',
+            data: [question1Percentage, question2Percentage],
+            backgroundColor: ['blue', 'green'],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 100,
+              ticks: {
+                stepSize: 10
+              }
+            }
+          }
+        }
+      });
+    });
+  </script>
+
+
+    </section>
+    <section>
+    
+</main>
+</body>
+
+<div class="footer">
+    <footer>
+        <ul class="list-inline">
+        <li class="list-inline-item"><a href="inicio" style="color: black;">Inicio</a></li>
+        <li class="list-inline-item"><a href="indicadores" style="color: black;">Indicadores</a></li>
+        <li class="list-inline-item"><a href="lista" style="color: black;">Lista</a></li>
+        <li class="list-inline-item"><a href="acerca_de" style="color: black;">Acerca de</a></li>
+        </ul>
+    <p class="copyright">Rick O'brian Hernandez © 2022</p>
+</footer>
+</div>
+</body>
+</html>
