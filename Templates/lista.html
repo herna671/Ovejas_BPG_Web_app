@@ -10,48 +10,7 @@
     <title>Buenas Prácticas Ganaderas</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
-  <style>
-    .flashcard {
-      width: 300px;
-      height: 200px;
-      border: 1px solid black;
-      margin: 20px;
-      perspective: 1000px;
-    }
-
-    .card-inner {
-      width: 100%;
-      height: 100%;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-    }
-
-    .card-inner.flipped {
-      transform: rotateY(180deg);
-    }
-
-    .card-face {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      backface-visibility: hidden;
-    }
-
-    .card-front {
-      background-color: #f2f2f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .card-back {
-      background-color: #d3d3d3;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transform: rotateY(180deg);
-    }
-  </style>
+  
   <body>
     <nav class="navbar">
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -66,27 +25,37 @@
   <br/>
 
 <main>
-    
-  <div class="flashcard">
-    <div class="card-inner">
-      <div class="card-face card-front">
-        <h1>Question 1</h1>
-        <button onclick="flipCard(this.parentNode.parentNode)">Show Answer</button>
-      </div>
-      <div class="card-face card-back">
-        <h1>Answer 1</h1>
-        <button onclick="flipCard(this.parentNode.parentNode)">Next Question</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
    
-<script>
-  function flipCard(card) {
-  card.classList.toggle("flipped");
-}
-</script>
+  <div class="card">
+		<div class="card__inner">
+			<div class="card__face card__face--front">
+				<h2>Card Front</h2>
+			</div>
+			<div class="card__face card__face--back">
+				<div class="card__content">
+					<div class="card__header">
+						<img src="pp.jpg" alt="" class="pp" />
+						<h2>Tyler Potts</h2>
+					</div>
+					<div class="card__body">
+						<h3>JavaScript Wizard</h3>
+						<p>Lorem ipsum <strong>dolor</strong> sit amet, consectetur <strong>adipiscing</strong> elit. Sed id erat a magna lobortis dictum. Nunc est arcu, <strong>lacinia</strong> quis sapien placerat, <strong>laoreet</strong> tincidunt nulla.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="main.js"></script>
+
+
+  <script>
+    const card = document.querySelector(".card__inner");
+
+card.addEventListener("click", function (e) {
+  card.classList.toggle('is-flipped');
+});
+  </script>
+  
 </main>
 </body>
 
