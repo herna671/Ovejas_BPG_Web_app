@@ -10,6 +10,48 @@
     <title>Buenas Prácticas Ganaderas</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
+  <style>
+    .flashcard {
+      width: 300px;
+      height: 200px;
+      border: 1px solid black;
+      margin: 20px;
+      perspective: 1000px;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .card-inner.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+    }
+
+    .card-front {
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card-back {
+      background-color: #d3d3d3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: rotateY(180deg);
+    }
+  </style>
   <body>
     <nav class="navbar">
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -25,84 +67,32 @@
 
 <main>
     
-    <section> 
-        <form id="checkboxForm">
-            <h3>Checkbox Form</h3>
-            <label>
-                ¿Tienes algún registro escrito de vacunaciones o tratamientos preventivos hechos a tus ovejas?:
-                <input type="radio" name="question1" value="option1"> Option 1
-                <input type="radio" name="question1" value="option2"> Option 2
-            </label>
-            <br>
-            <label>
-            ¿tu granja esta cercada para evitar la entrada o salida de animales no deseados?
-            <input type="radio" name="question2" value="option1"> Option 1
-            <input type="radio" name="question2" value="option2"> Option 2
-            </label>
-            <br>
-            <input type="submit" value="Submit">
-        </form>
+  <div class="flashcard">
+    <div class="card-inner">
+      <div class="card-face card-front">
+        <h1>Question 1</h1>
+        <button onclick="flipCard(this.parentNode.parentNode)">Show Answer</button>
+      </div>
+      <div class="card-face card-back">
+        <h1>Answer 1</h1>
+        <button onclick="flipCard(this.parentNode.parentNode)">Next Question</button>
+      </div>
+    </div>
+  </div>
 
-        <canvas id="barChart"></canvas>
-
-        <script>
-    document.getElementById("checkboxForm").addEventListener("submit", function(event) {
-      event.preventDefault(); // Prevent form submission
-
-      var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-      var totalCount = checkboxes.length;
-      var question1Count = 0;
-      var question2Count = 0;
-
-      checkboxes.forEach(function(checkbox) {
-        if (checkbox.name === "question1") {
-          question1Count++;
-        } else if (checkbox.name === "question2") {
-          question2Count++;
-        }
-      });
-
-      var question1Percentage = (question1Count / totalCount) * 100;
-      var question2Percentage = (question2Count / totalCount) * 100;
-      
-      var ctx = document.getElementById("barChart").getContext("2d");
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Question 1', 'Question 2'],
-          datasets: [{
-            label: 'Percentage',
-            data: [question1Percentage, question2Percentage],
-            backgroundColor: ['blue', 'green'],
-            borderWidth: 1
-          }]
-        },
-        options: {
-          responsive: true,
-          scales: {
-            y: {
-              beginAtZero: true,
-              max: 100,
-              ticks: {
-                stepSize: 10
-              }
-            }
-          }
-        }
-      });
-    });
-  </script>
-
-
-    </section>
-    <section>
-    
+  <script src="script.js"></script>
+   
+<script>
+  function flipCard(card) {
+  card.classList.toggle("flipped");
+}
+</script>
 </main>
 </body>
 
 <div class="footer">
     <footer>
-      <ul class="list-inline">
+        <ul class="list-inline">
         <li class="list-inline-item"><a href="C:\Users\Usuario\Documents\GitHub\Ovejas_BPG_Web_app\Templates\index.html" style="color: black;">Inicio</a></li>
         <li class="list-inline-item"><a href="C:\Users\Usuario\Documents\GitHub\Ovejas_BPG_Web_app\Templates\aprende.html" style="color: black;">Aprende</a></li>
         <li class="list-inline-item"><a href="C:\Users\Usuario\Documents\GitHub\Ovejas_BPG_Web_app\Templates\lista.html" style="color: black;">Lista</a></li>
