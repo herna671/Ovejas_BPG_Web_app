@@ -20,13 +20,14 @@
   padding: 40px;
   width: 800px;
   height: 400px;
-  background: linear-gradient(to bottom, #4286f4, #ffffff);
-  border: 5px solid #0000009f;
+  background: linear-gradient(to bottom, #1159cc, #fffefe93);
+  border: 2px solid #0000009f;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  font-size: xx-large;
 }
 
 .controls {
@@ -35,10 +36,12 @@
 
 button {
   padding: 10px 20px;
-  background-color: #333;
+  background-color: #1f37a3e0;
   color: #fff;
-  border: none;
+  border: black;
   cursor: pointer;
+  font-size: large;
+  width: 150px;
 }
 
 #answer {
@@ -68,7 +71,7 @@ button {
       <div id="answer" style="display: none;"></div>
     </div>
     <div class="controls">
-      <button id="yes-btn" onclick="checkAnswer(true)">Yes</button>
+      <button id="yes-btn" onclick="checkAnswer(true)">Si</button>
       <button id="no-btn" onclick="checkAnswer(false)">No</button>
     </div>
   </div>
@@ -81,12 +84,12 @@ button {
 <script>
 const flashcards = [
   {
-    question: "Is the sky blue?",
+    question: "¿Tu granja está cercada de manera que impida la entrada de animales extraños y personas?",
     answer: true
   },
   {
-    question: "Are oranges purple?",
-    answer: false
+    question: "¿Estan todas las areas de tu granja identificadas, por ejemplo: area de medicamentos, insumos etc.?",
+    answer: true
   }
 ];
 
@@ -103,8 +106,8 @@ function showNextCard() {
     answerElement.style.display = "none";
   } else {
     const percentage = (score / flashcards.length) * 100;
-    questionElement.textContent = "Quiz completed!";
-    answerElement.textContent = `Score: ${score} out of ${flashcards.length} (${percentage.toFixed(2)}%)`;
+    questionElement.textContent = "Resultado del analisis preliminar de tu granja";
+    answerElement.textContent = `Lograste: ${score} de ${flashcards.length} (${percentage.toFixed(2)}%) de implementación de Buenas Prácticas en tu granja` ;
     answerElement.style.display = "block";
     document.getElementById("yes-btn").disabled = true;
     document.getElementById("no-btn").disabled = true;
