@@ -8,7 +8,43 @@
      <link rel="stylesheet" type="text/css" href="../Static/css/main.css">
     
     <title>Buenas Prácticas Ganaderas</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+     .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.flashcard {
+  padding: 40px;
+  width: 800px;
+  height: 400px;
+  background: linear-gradient(to bottom, #4286f4, #ffffff);
+  border: 5px solid #0000009f;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#answer {
+  margin-top: 20px;
+}
+    </style>
   </head>
   
   <body>
@@ -26,38 +62,71 @@
 
 <main>
    
-  <div class="card">
-		<div class="card__inner">
-			<div class="card__face card__face--front">
-				<h2>Card Front</h2>
-			</div>
-			<div class="card__face card__face--back">
-				<div class="card__content">
-					<div class="card__header">
-						<img src="pp.jpg" alt="" class="pp" />
-						<h2>Tyler Potts</h2>
-					</div>
-					<div class="card__body">
-						<h3>JavaScript Wizard</h3>
-						<p>Lorem ipsum <strong>dolor</strong> sit amet, consectetur <strong>adipiscing</strong> elit. Sed id erat a magna lobortis dictum. Nunc est arcu, <strong>lacinia</strong> quis sapien placerat, <strong>laoreet</strong> tincidunt nulla.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<script src="main.js"></script>
+  <div class="container">
+    <div class="flashcard">
+      <div id="question"></div>
+      <div id="answer" style="display: none;"></div>
+    </div>
+    <div class="controls">
+      <button id="yes-btn" onclick="checkAnswer(true)">Yes</button>
+      <button id="no-btn" onclick="checkAnswer(false)">No</button>
+    </div>
+  </div>
 
+  <script src="script.js"></script>
 
-  <script>
-    const card = document.querySelector(".card__inner");
-
-card.addEventListener("click", function (e) {
-  card.classList.toggle('is-flipped');
-});
-  </script>
-  
 </main>
 </body>
+
+<script>
+const flashcards = [
+  {
+    question: "Is the sky blue?",
+    answer: true
+  },
+  {
+    question: "Are oranges purple?",
+    answer: false
+  }
+];
+
+let currentCardIndex = 0;
+let score = 0;
+
+function showNextCard() {
+  const questionElement = document.getElementById("question");
+  const answerElement = document.getElementById("answer");
+
+  if (currentCardIndex < flashcards.length) {
+    const currentCard = flashcards[currentCardIndex];
+    questionElement.textContent = currentCard.question;
+    answerElement.style.display = "none";
+  } else {
+    const percentage = (score / flashcards.length) * 100;
+    questionElement.textContent = "Quiz completed!";
+    answerElement.textContent = `Score: ${score} out of ${flashcards.length} (${percentage.toFixed(2)}%)`;
+    answerElement.style.display = "block";
+    document.getElementById("yes-btn").disabled = true;
+    document.getElementById("no-btn").disabled = true;
+  }
+}
+
+function checkAnswer(userAnswer) {
+  const currentCard = flashcards[currentCardIndex];
+
+  if (userAnswer === currentCard.answer) {
+    score++;
+  }
+
+  currentCardIndex++;
+  showNextCard();
+}
+
+// Start the flash card quiz
+showNextCard();
+
+
+</script>
 
 <div class="footer">
     <footer>
