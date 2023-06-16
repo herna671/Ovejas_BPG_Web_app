@@ -135,18 +135,11 @@ a.boton {
   }
 
 
-  /* iframe styling */
+  /* iframe styling */ 
 
-.iframe {
-    border: blue;
-    border-radius: 12px;
-    border-top: #c00 1px dotted;
-    border-right: #c00 2px dotted;
-    border-left: #c00 2px dotted;
-    border-bottom: #c00 4px dotted;
+.frame {
+  box-shadow: inset 4px 4px 4px rgba(122, 113, 113, 0.966);
 }
-
-
 
 
 :root {
