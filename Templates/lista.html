@@ -1,149 +1,90 @@
-!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-     <link rel="stylesheet" type="text/css" href="../Static/css/main.css">
-    
-    <title>Buenas Prácticas Ganaderas</title>
-    <style>
-     .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Accreditation Form</title>
+</head>
+<body>
+  <h1>Accreditation Form</h1>
+  <form id="accreditationForm">
+    <h3>Please answer the following questions:</h3>
+    <ol>
+      <li data-category="fundamentales">Question 1: <input type="checkbox" name="question1" value="yes"></li>
+      <li data-category="mayores">Question 2: <input type="checkbox" name="question2" value="yes"></li>
+      <li data-category="mayores">Question 2: <input type="checkbox" name="question2" value="yes"></li>
+      <li data-category="mayores">Question 2: <input type="checkbox" name="question2" value="yes"></li>
+      <li data-category="mayores">Question 2: <input type="checkbox" name="question2" value="yes"></li>
+      <li data-category="mayores">Question 2: <input type="checkbox" name="question2" value="yes"></li>
+      <li data-category="mayores">Question 2: <input type="checkbox" name="question2" value="yes"></li>
+      <li data-category="mayores">Question 2: <input type="checkbox" name="question2" value="yes"></li>
+      <li data-category="mayores">Question 2: <input type="checkbox" name="question2" value="yes"></li>
+      <li data-category="mayores">Question 2: <input type="checkbox" name="question2" value="yes"></li>
+      <li data-category="mayores">Question 2: <input type="checkbox" name="question2" value="yes"></li>
+      <li data-category="menores">Question 4: <input type="checkbox" name="question4" value="yes"></li>
+      <li data-category="menores">Question 5: <input type="checkbox" name="question5" value="yes"></li>
+      <li data-category="menores">Question 6: <input type="checkbox" name="question6" value="yes"></li>
+      <li data-category="menores">Question 6: <input type="checkbox" name="question6" value="yes"></li>
+      <li data-category="menores">Question 6: <input type="checkbox" name="question6" value="yes"></li>
+      <li data-category="menores">Question 6: <input type="checkbox" name="question6" value="yes"></li>
+      <li data-category="menores">Question 6: <input type="checkbox" name="question6" value="yes"></li>
+      <li data-category="menores">Question 6: <input type="checkbox" name="question6" value="yes"></li>
+      <li data-category="menores">Question 6: <input type="checkbox" name="question6" value="yes"></li>
+      <li data-category="menores">Question 6: <input type="checkbox" name="question6" value="yes"></li>
+      <!-- Add more questions here -->
+    </ol>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('accreditationForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get all the checkbox inputs
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+      let fundamentalesCount = 0;
+      let mayoresCount = 0;
+      let menoresCount = 0;
+
+      // Count the number of checked checkboxes for each category
+      checkboxes.forEach(function(checkbox) {
+        if (checkbox.checked) {
+          const category = checkbox.parentNode.getAttribute('data-category');
+          if (category === 'fundamentales') {
+            fundamentalesCount++;
+          } else if (category === 'mayores') {
+            mayoresCount++;
+          } else if (category === 'menores') {
+            menoresCount++;
+          }
+        }
+      });
+
+      // Calculate the percentages
+      const totalFundamentales = document.querySelectorAll('[data-category="fundamentales"]').length;
+      const totalMayores = document.querySelectorAll('[data-category="mayores"]').length;
+      const totalMenores = document.querySelectorAll('[data-category="menores"]').length;
+
+      const fundamentalesPercentage = (fundamentalesCount / totalFundamentales) * 100 || 0;
+      const mayoresPercentage = (mayoresCount / totalMayores) * 100 || 0;
+      const menoresPercentage = (menoresCount / totalMenores) * 100 || 0;
+
+     // Determine the accreditation based on the percentages
+      let accreditation;
+      if (fundamentalesPercentage === 100 && (mayoresPercentage <= 80 || menoresPercentage <= 60)) {
+          accreditation = 'Work hard';
+          } else if (fundamentalesPercentage === 100 && mayoresPercentage > 80 && menoresPercentage > 60) {
+          accreditation = 'Accredited';
+          } else {
+          accreditation = 'Not Accredited';
 }
 
-.flashcard {
-  padding: 40px;
-  width: 800px;
-  height: 400px;
-  background: linear-gradient(to bottom, #1159cc, #fffefe93);
-  border: 2px solid #0000009f;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  font-size: xx-large;
-}
 
-.controls {
-  margin-top: 20px;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #1f37a3e0;
-  color: #fff;
-  border: black;
-  cursor: pointer;
-  font-size: large;
-  width: 150px;
-}
-
-#answer {
-  margin-top: 20px;
-}
-    </style>
-  </head>
-  
-  <body>
-    <nav class="navbar">
-      <div class="logotipo">
-          <a href="C:\Users\Usuario\Documents\GitHub\Ovejas_BPG_Web_app\Templates\index.html">
-              <img src="C:\Users\Usuario\Documents\GitHub\Ovejas_BPG_Web_app\Static\logo111.png" alt="Logo">
-          </a>
-      </div>
-      <div class="navbar-nav">
-          <a class="nav-link" href="C:\Users\Usuario\Documents\GitHub\Ovejas_BPG_Web_app\Templates\aprende.html" style="text-decoration: none; color: inherit;">Aprende</a>
-          <a class="nav-link" href="C:\Users\Usuario\Documents\GitHub\Ovejas_BPG_Web_app\Templates\lista.html" style="text-decoration: none; color: inherit;">Lista de chequeo</a>
-          <a class="nav-link" href="C:\Users\Usuario\Documents\GitHub\Ovejas_BPG_Web_app\Templates\acerca_de.html" style="text-decoration: none; color: inherit;">Acerca de</a>
-      </div>
-  </nav>
-  <br/>
-
-<main>
-   
-  <div class="container">
-    <div class="flashcard">
-      <div id="question"></div>
-      <div id="answer" style="display: none;"></div>
-    </div>
-    <div class="controls">
-      <button id="yes-btn" onclick="checkAnswer(true)">Si</button>
-      <button id="no-btn" onclick="checkAnswer(false)">No</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-
-</main>
-</body>
-
-<script>
-const flashcards = [
-  {
-    question: "¿Tu granja está cercada de manera que impida la entrada de animales extraños y personas?",
-    answer: true
-  },
-  {
-    question: "¿Estan todas las areas de tu granja identificadas, por ejemplo: area de medicamentos, insumos etc.?",
-    answer: true
-  }
-];
-
-let currentCardIndex = 0;
-let score = 0;
-
-function showNextCard() {
-  const questionElement = document.getElementById("question");
-  const answerElement = document.getElementById("answer");
-
-  if (currentCardIndex < flashcards.length) {
-    const currentCard = flashcards[currentCardIndex];
-    questionElement.textContent = currentCard.question;
-    answerElement.style.display = "none";
-  } else {
-    const percentage = (score / flashcards.length) * 100;
-    questionElement.textContent = "Resultado del analisis preliminar de tu granja";
-    answerElement.textContent = `Lograste: ${score} de ${flashcards.length} (${percentage.toFixed(2)}%) de implementación de Buenas Prácticas en tu granja` ;
-    answerElement.style.display = "block";
-    document.getElementById("yes-btn").disabled = true;
-    document.getElementById("no-btn").disabled = true;
-  }
-}
-
-function checkAnswer(userAnswer) {
-  const currentCard = flashcards[currentCardIndex];
-
-  if (userAnswer === currentCard.answer) {
-    score++;
-  }
-
-  currentCardIndex++;
-  showNextCard();
-}
-
-// Start the flash card quiz
-showNextCard();
-
-
-</script>
-
-<div class="footer">
-    <footer>
-        <ul class="list-inline">
-        <li class="list-inline-item"><a href="C:\Users\Usuario\Documents\GitHub\Ovejas_BPG_Web_app\Templates\index.html" style="color: black;">Inicio</a></li>
-        <li class="list-inline-item"><a href="C:\Users\Usuario\Documents\GitHub\Ovejas_BPG_Web_app\Templates\aprende.html" style="color: black;">Aprende</a></li>
-        <li class="list-inline-item"><a href="C:\Users\Usuario\Documents\GitHub\Ovejas_BPG_Web_app\Templates\lista.html" style="color: black;">Lista</a></li>
-        <li class="list-inline-item"><a href="C:\Users\Usuario\Desktop\Web_app_BPG\Templates\acerca_de.html" style="color: black;">Acerca de</a></li>
-    <br>
-    <br>
-    <p class="copyright">Rick O'brian Hernandez © 2022</p>
-</footer>
-</div>
+      // Display the result
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `Accreditation Result: ${accreditation}`;
+    });
+  </script>
 </body>
 </html>
