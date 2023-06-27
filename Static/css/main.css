@@ -163,4 +163,15 @@ a.boton {
 
   h1 {
     text-align: center;
+    
   }
+
+  h3 {
+    color: black;
+    font-family: 'Alegreya Sans', sans-serif;
+  }
+
+label {
+  margin-right: 10px;
+}
+

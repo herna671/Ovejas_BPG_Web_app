@@ -16,7 +16,7 @@
       text-align: center;
       border-color: #89979C;
       background-color: red;
-      background-image: linear-gradient(to bottom right, #ff9eaa 0% 65%, #e860ff 95% 100%);
+      background-image: linear-gradient(to bottom right, #84A4FC 0% 65%, #737CCF 95% 100%);
       border-right-width: 3px;
       border-bottom-width: 3px;
       border-radius: 10px;
@@ -40,6 +40,12 @@
       background-color: #f1f1f1;
     }
   </style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
 
@@ -65,44 +71,48 @@
 <br>
 
 
-  <h1>Accreditation Form</h1>
+  <h1>Cuestionario Buenas Prácticas Ganaderas</h1>
   <br>
   <br>
   <br>
   <br>
   <div id="flashcardContainer">
     <div id="question1Flashcard" class="flashcard active" data-category="fundamentales">
-      <h3>Question 1</h3>
+      <h3>¿Está tu granja/finca protegida por una valla, cerca viva u otro elemento que evite que 
+        ingresen personas o animales no deseados?
+      </h3>
+      <br>
       <label>
-        <input type="radio" name="question1" value="yes"> Yes
+        <input type="radio" name="question1" value="yes"> Si
       </label>
       <label>
         <input type="radio" name="question1" value="no"> No
       </label>
       <br>
-      <button class="nextBtn">Next</button>
+      <br>
+      <button class="nextBtn">Siguiente</button>
     </div>
     <div id="question1Flashcard" class="flashcard active" data-category="mayores">
-      <h3>Question 1</h3>
+      <h3>Question 2</h3>
       <label>
-        <input type="radio" name="question1" value="yes"> Yes
+        <input type="radio" name="question1" value="yes"> Si
       </label>
       <label>
         <input type="radio" name="question1" value="no"> No
       </label>
       <br>
-      <button class="nextBtn">Next</button>
+      <button class="nextBtn">Siguiente</button>
     </div>
     <div id="question1Flashcard" class="flashcard active" data-category="menores">
-      <h3>Question 1</h3>
+      <h3>Question 3</h3>
       <label>
-        <input type="radio" name="question1" value="yes"> Yes
+        <input type="radio" name="question1" value="yes"> Si
       </label>
       <label>
         <input type="radio" name="question1" value="no"> No
       </label>
       <br>
-      <button class="nextBtn">Next</button>
+      <button class="nextBtn">Siguiente</button>
     </div>
     <!-- Add more question flashcards here -->
 
@@ -186,7 +196,18 @@
     showFlashcard(0);
   </script>
 
-
+<div class="footer">
+  <footer>
+      <ul class="list-inline">
+      <li class="list-inline-item"><a href="C:\Users\Usuario\Documents\GitHub\Ovejas_BPG_Web_app\Templates\index.html" style="color: black;">Inicio</a></li>
+      <li class="list-inline-item"><a href="C:\Users\Usuario\Documents\GitHub\Ovejas_BPG_Web_app\Templates\aprende.html" style="color: black;">Aprende</a></li>
+      <li class="list-inline-item"><a href="C:\Users\Usuario\Documents\GitHub\Ovejas_BPG_Web_app\Templates\lista.html" style="color: black;">Lista</a></li>
+      <li class="list-inline-item"><a href="C:\Users\Usuario\Desktop\Web_app_BPG\Templates\acerca_de.html" style="color: black;">Acerca de</a></li>
+      </ul>
+      <br>
+      <p class="copyright">Rick O'brian Hernandez © 2022</p>
+</footer>
+</div>
 </body>
 </html>
 
