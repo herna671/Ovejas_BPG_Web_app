@@ -40,7 +40,7 @@ a:link {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.966);
+    background-color: #071727;
     color: rgb(255, 255, 255);
     height: 50px;
     border: 1px solid #727277c5;
@@ -158,4 +158,9 @@ a.boton {
     font-family: montserrat, sans-serif;
     width: 100%;
     min-height: 100vh;
+    background-image: linear-gradient(to bottom right, #dae9fa 0% 65%, #76abfc 95% 100%);
+  }
+
+  h1 {
+    text-align: center;
   }
