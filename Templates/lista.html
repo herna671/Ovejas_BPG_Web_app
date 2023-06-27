@@ -49,6 +49,8 @@
 <br>
 <br>
 <br>
+
+
   <h1>Accreditation Form</h1>
   <br>
   <br>
@@ -64,149 +66,30 @@
       <br>
       <button class="nextBtn">Next</button>
     </div>
-    <div id="question2Flashcard" class="flashcard" data-category="mayores">
-      <h3>Question 2</h3>
+    <div id="question1Flashcard" class="flashcard active" data-category="mayores">
+      <h3>Question 1</h3>
       <label>
-        <input type="radio" name="question2" value="yes"> Yes
+        <input type="radio" name="question1" value="yes"> Yes
       </label>
       <label>
-        <input type="radio" name="question2" value="no"> No
-      </label>
-      <br>
-      <button class="nextBtn">Next</button>
-    </div>
-    <div id="question3Flashcard" class="flashcard" data-category="mayores">
-      <h3>Question 3</h3>
-      <label>
-        <input type="radio" name="question3" value="yes"> Yes
-      </label>
-      <label>
-        <input type="radio" name="question3" value="no"> No
+        <input type="radio" name="question1" value="no"> No
       </label>
       <br>
       <button class="nextBtn">Next</button>
     </div>
-    <div id="question4Flashcard" class="flashcard" data-category="menores">
-      <h3>Question 4</h3>
+    <div id="question1Flashcard" class="flashcard active" data-category="menores">
+      <h3>Question 1</h3>
       <label>
-        <input type="radio" name="question4" value="yes"> Yes
+        <input type="radio" name="question1" value="yes"> Yes
       </label>
       <label>
-        <input type="radio" name="question4" value="no"> No
-      </label>
-      <br>
-      <button class="nextBtn">Next</button>
-    </div>
-    <div id="question5Flashcard" class="flashcard" data-category="menores">
-      <h3>Question 5</h3>
-      <label>
-        <input type="radio" name="question5" value="yes"> Yes
-      </label>
-      <label>
-        <input type="radio" name="question5" value="no"> No
+        <input type="radio" name="question1" value="no"> No
       </label>
       <br>
       <button class="nextBtn">Next</button>
     </div>
-    <div id="question6Flashcard" class="flashcard" data-category="menores">
-      <h3>Question 6</h3>
-      <label>
-        <input type="radio" name="question6" value="yes"> Yes
-      </label>
-      <label>
-        <input type="radio" name="question6" value="no"> No
-      </label>
-      <br>
-      <button class="nextBtn">Next</button>
-    </div>
-    <div id="question5Flashcard" class="flashcard" data-category="menores">
-      <h3>Question 5</h3>
-      <label>
-        <input type="radio" name="question5" value="yes"> Yes
-      </label>
-      <label>
-        <input type="radio" name="question5" value="no"> No
-      </label>
-      <br>
-      <button class="nextBtn">Next</button>
-    </div>
-    <div id="question5Flashcard" class="flashcard" data-category="menores">
-      <h3>Question 5</h3>
-      <label>
-        <input type="radio" name="question5" value="yes"> Yes
-      </label>
-      <label>
-        <input type="radio" name="question5" value="no"> No
-      </label>
-      <br>
-      <button class="nextBtn">Next</button>
-    </div>
-    <div id="question5Flashcard" class="flashcard" data-category="menores">
-      <h3>Question 5</h3>
-      <label>
-        <input type="radio" name="question5" value="yes"> Yes
-      </label>
-      <label>
-        <input type="radio" name="question5" value="no"> No
-      </label>
-      <br>
-      <button class="nextBtn">Next</button>
-    </div>
-    <div id="question5Flashcard" class="flashcard" data-category="menores">
-      <h3>Question 5</h3>
-      <label>
-        <input type="radio" name="question5" value="yes"> Yes
-      </label>
-      <label>
-        <input type="radio" name="question5" value="no"> No
-      </label>
-      <br>
-      <button class="nextBtn">Next</button>
-    </div>
-    <div id="question5Flashcard" class="flashcard" data-category="menores">
-      <h3>Question 5</h3>
-      <label>
-        <input type="radio" name="question5" value="yes"> Yes
-      </label>
-      <label>
-        <input type="radio" name="question5" value="no"> No
-      </label>
-      <br>
-      <button class="nextBtn">Next</button>
-    </div>
-    <div id="question5Flashcard" class="flashcard" data-category="menores">
-      <h3>Question 5</h3>
-      <label>
-        <input type="radio" name="question5" value="yes"> Yes
-      </label>
-      <label>
-        <input type="radio" name="question5" value="no"> No
-      </label>
-      <br>
-      <button class="nextBtn">Next</button>
-    </div>
-    <div id="question5Flashcard" class="flashcard" data-category="menores">
-      <h3>Question 5</h3>
-      <label>
-        <input type="radio" name="question5" value="yes"> Yes
-      </label>
-      <label>
-        <input type="radio" name="question5" value="no"> No
-      </label>
-      <br>
-      <button class="nextBtn">Next</button>
-    </div>
-    <div id="question5Flashcard" class="flashcard" data-category="menores">
-      <h3>Question 5</h3>
-      <label>
-        <input type="radio" name="question5" value="yes"> Yes
-      </label>
-      <label>
-        <input type="radio" name="question5" value="no"> No
-      </label>
-      <br>
-      <button class="nextBtn">Next</button>
-    </div>
+    <!-- Add more question flashcards here -->
+
     <div id="resultFlashcard" class="flashcard resultFlashcard">
       <h3>Accreditation Result</h3>
       <div id="result"></div>
@@ -260,23 +143,22 @@
       const menoresPercentage = (menoresCount / totalMenores) * 100;
 
       let accreditation;
+
+      // Adjusted the logic for determining the accreditation result
       if (
         fundamentalesPercentage === 100 &&
-        mayoresPercentage > 80 &&
-        menoresPercentage > 60
+        mayoresPercentage >= 80 &&
+        menoresPercentage >= 60
       ) {
         accreditation = 'Accredited';
-      } else if (
-        fundamentalesPercentage === 100 &&
-        (mayoresPercentage <= 80 || menoresPercentage <= 60)
-      ) {
+      } else if (fundamentalesPercentage === 100) {
         accreditation = 'Work hard';
       } else {
         accreditation = 'Not Accredited';
       }
 
       const resultDiv = document.getElementById('result');
-      resultDiv.innerHTML = accreditation;
+      resultDiv.textContent = accreditation;
       showFlashcard(flashcards.length - 1);
     }
 
@@ -287,6 +169,8 @@
 
     showFlashcard(0);
   </script>
+
+
 </body>
 </html>
 
